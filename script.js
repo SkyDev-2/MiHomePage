@@ -246,12 +246,38 @@ function applyTheme(theme) {
 let musicPlaying = false;
 
 
-/*
-    Volumen inicial
-*/
+/* =========================================
+   INICIAR MÚSICA DESPUÉS DEL PRIMER CLIC
+========================================= */
 
-music.volume =
-    volumeControl.value;
+document.addEventListener(
+    "click",
+    () => {
+
+        if (!musicPlaying) {
+
+            music.play()
+                .then(() => {
+
+                    musicPlaying = true;
+
+                    musicButton.textContent = "🔊";
+
+                })
+                .catch(error => {
+
+                    console.log(
+                        "No se pudo reproducir la música:",
+                        error
+                    );
+
+                });
+
+        }
+
+    },
+    { once: true }
+);
 
 
 /* =========================================
