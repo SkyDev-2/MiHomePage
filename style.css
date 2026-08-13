@@ -1,0 +1,693 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --accent: #00aaff;
+
+    --accent-transparent:
+        rgba(0, 170, 255, 0.25);
+
+    --glass:
+        rgba(255, 255, 255, 0.10);
+
+    --glass-border:
+        rgba(255, 255, 255, 0.20);
+
+}
+
+
+/* =========================================
+   TEMAS
+========================================= */
+
+body.theme-blue {
+
+    --accent: #00aaff;
+
+    --accent-transparent:
+        rgba(0, 170, 255, 0.25);
+
+}
+
+
+body.theme-purple {
+
+    --accent: #a855f7;
+
+    --accent-transparent:
+        rgba(168, 85, 247, 0.25);
+
+}
+
+
+body.theme-green {
+
+    --accent: #22c55e;
+
+    --accent-transparent:
+        rgba(34, 197, 94, 0.25);
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    overflow: hidden;
+
+    background: #050505;
+
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.background-video {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+
+}
+
+
+/* =========================================
+   CAPA SOBRE EL VIDEO
+========================================= */
+
+.video-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.70)
+        );
+
+    z-index: -1;
+
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   RELOJ
+========================================= */
+
+#clock {
+
+    font-size:
+        clamp(55px, 8vw, 100px);
+
+    font-weight: 300;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,255,255,0.35);
+
+}
+
+
+#date {
+
+    margin-top: 5px;
+
+    margin-bottom: 35px;
+
+    font-size: 17px;
+
+    opacity: 0.75;
+
+}
+
+
+/* =========================================
+   BUSCADOR
+========================================= */
+
+.search-box {
+
+    width:
+        min(650px, 90vw);
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.3s;
+
+}
+
+
+.search-box:hover,
+.search-box:focus-within {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 30px
+        var(--accent-transparent);
+
+}
+
+
+.search-icon {
+
+    font-size: 20px;
+
+    margin-right: 12px;
+
+    opacity: 0.7;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 17px;
+
+}
+
+
+.search-box input::placeholder {
+
+    color:
+        rgba(255,255,255,0.55);
+
+}
+
+
+/* =========================================
+   ACCESOS
+========================================= */
+
+.shortcuts {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    max-width: 700px;
+
+}
+
+
+.shortcut {
+
+    width: 90px;
+
+    padding: 12px 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+
+    transition: 0.25s;
+
+}
+
+
+.shortcut:hover {
+
+    background:
+        rgba(255,255,255,0.10);
+
+    transform:
+        translateY(-6px);
+
+}
+
+
+.shortcut-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    overflow: hidden;
+
+}
+
+
+.shortcut-icon img {
+
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+}
+
+
+.shortcut span {
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+}
+
+
+/* =========================================
+   BOTÓN CONFIGURACIÓN
+========================================= */
+
+.settings-button {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    background:
+        rgba(0,0,0,0.35);
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+
+}
+
+
+.settings-button:hover {
+
+    transform: rotate(45deg);
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 20px
+        var(--accent-transparent);
+
+}
+
+
+/* =========================================
+   PANEL
+========================================= */
+
+.settings-panel {
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    width: 330px;
+
+    max-width: 90vw;
+
+    height: 100vh;
+
+    padding: 30px;
+
+    background:
+        rgba(15,15,20,0.88);
+
+    backdrop-filter: blur(25px);
+
+    border-left:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    transform:
+        translateX(100%);
+
+    transition:
+        transform 0.35s ease;
+
+    z-index: 10;
+
+    overflow-y: auto;
+
+}
+
+
+.settings-panel.open {
+
+    transform:
+        translateX(0);
+
+}
+
+
+/* =========================================
+   CABECERA DEL PANEL
+========================================= */
+
+.settings-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.settings-header h2 {
+
+    font-size: 21px;
+
+}
+
+
+.close-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    opacity: 0.7;
+
+}
+
+
+.close-button:hover {
+
+    opacity: 1;
+
+    color:
+        var(--accent);
+
+}
+
+
+/* =========================================
+   GRUPOS DE CONFIGURACIÓN
+========================================= */
+
+.setting-group {
+
+    margin-bottom: 35px;
+
+}
+
+
+.setting-group h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 15px;
+
+    opacity: 0.65;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+   OPCIONES
+========================================= */
+
+.radio-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.radio-option:hover {
+
+    background:
+        rgba(255,255,255,0.08);
+
+}
+
+
+.radio-option input {
+
+    accent-color:
+        var(--accent);
+
+}
+
+
+/* =========================================
+   MÚSICA
+========================================= */
+
+.music-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.music-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    background:
+        rgba(255,255,255,0.10);
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+.music-button:hover {
+
+    border-color:
+        var(--accent);
+
+}
+
+
+#volumeControl {
+
+    flex: 1;
+
+    accent-color:
+        var(--accent);
+
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+    #clock {
+
+        font-size: 55px;
+
+    }
+
+
+    #date {
+
+        font-size: 14px;
+
+    }
+
+
+    .search-box {
+
+        height: 55px;
+
+    }
+
+
+    .shortcuts {
+
+        gap: 5px;
+
+    }
+
+
+    .shortcut {
+
+        width: 75px;
+
+    }
+
+
+    .settings-panel {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+}
